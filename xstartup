@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#vglclient &
+
+#XFCE_PANEL_MIGRATE_DEFAULT=true startxfce4 &
+startlxde
+
+#Volume-based Multiple Linear Regression Analysis
+#http://wiki.stat.ucla.edu/socr/index.php/SOCR_EduMaterials_AnalysesCommandLineVolumeMultipleRegression
+
+jars=/socr/jars
+java -cp $jars/SOCR_core.jar:$jars/SOCR_plugin.jar \
+	edu.ucla.stat.SOCR.analyses.command.volume.VolumeMultipleRegression \
+	-dm /input/DM.txt -h -regressors CDR,MMSE -dim 220 220 220 -intercept interceptConstant
+
+#java -ms200m -mx500m -cp /ifs/ccb/CCB_SW_Tools/others/Statistics/SOCR_Statistics/bin/SOCR_core.jar:/ifs/ccb/CCB_SW_Tools/others/Statistics/SOCR_Statistics/bin/SOCR_plugin.jar edu.ucla.stat.SOCR.analyses.command.volume.VolumeMultipleRegression -dm /ifs/ccb/CCB_SW_Tools/others/Statistics/SOCR_Statistics/SOCR_CSV_test_Scripts_Data/DM.txt -h -regressors CDR,MMSE -dim 220 220 220 -intercept interceptConstant -p /ifs/tmp/P_Value -r /ifs/tmp/R_Value -t /ifs/tmp/TStat_Value -data_type 2
+
+#-h -regressors [name1,name2,...,name_k] -dim Zmax Ymax XMax [-intercept interceptConstant] [-p PValue_Filename] [-r RValue_Filename] [-t TStat_Filename] -data_type [0,1,2,3,4] -mask /ifs/tmp/myMaskVolume.img [-byteorder string]
+
+
